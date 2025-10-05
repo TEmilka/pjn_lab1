@@ -128,6 +128,7 @@ def parse_product_page(html: str, url: str) -> ProductRow:
     # --- price ---
     price_text_candidates = []
     for sel in [
+        "[data-price-type='final']",      # nowy selektor dla Komputronika
         "[data-testid='product-price']",
         ".price, .price-final, .product-price",
         "[class*='price']"
