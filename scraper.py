@@ -30,10 +30,10 @@ KOMPUTRONIK_CATEGORY_URL = "https://www.komputronik.pl/category/5022/laptopy.htm
 
 # Polite crawling settings
 REQUEST_TIMEOUT = (8, 20)  # (connect, read) timeouts
-SLEEP_MIN = 3.00
-SLEEP_MAX = 6.00
+SLEEP_MIN = 20.00
+SLEEP_MAX = 30.00
 MAX_PAGES = 999  # we'll stop after collecting >=100, but cap just in case
-TARGET_MIN_RECORDS = 100
+TARGET_MIN_RECORDS = 3
 
 HEADERS_POOL = [
     # rotate a few realistic desktop UAs

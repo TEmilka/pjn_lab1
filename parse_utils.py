@@ -141,6 +141,12 @@ def extract_from_spec_table(soup: BeautifulSoup) -> Dict[str, str]:
             key = normalize_whitespace(th.get_text(" ", strip=True)).lower()
             val = normalize_whitespace(tds[-1].get_text(" ", strip=True))
             map_into_spec(spec, key, val)
+    for grid in soup.select("div.grid.grid-cols-2.text-sm"):
+        divs = grid.find_all("div", recursive=False)
+        if len(divs) == 2:
+            key = normalize_whitespace(divs[0].get_text(" ", strip=True)).lower()
+            val = normalize_whitespace(divs[1].get_text(" ", strip=True))
+            map_into_spec(spec, key, val)
     return spec
 
 def map_into_spec(spec: Dict[str, str], key_lower: str, val: str):
